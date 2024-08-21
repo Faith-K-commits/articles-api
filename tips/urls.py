@@ -4,5 +4,6 @@ from . import views
 app_name = 'tips'
 
 urlpatterns = [
-    path('api/articles/', views.add_article, name="add_article"),
+    path('api/articles/', views.articles, name="articles"),
+    path('api/articles/language/<str:language>/', views.get_articles_by_language, name="get_articles_by_language"),
 ]
