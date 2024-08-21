@@ -47,11 +47,12 @@ def articles(request):
 @api_view(['GET'])
 def get_articles_by_language(request, language):
     try:
-        articles = Article.objects.filter(programming_language=language)
+        # Filter case insensitively
+        articles = Article.objects.filter(programming_language__iexact=language)
         if not articles:
             return Response({
                 "status": "error",
-                "message": f"no {language} articles found",
+                "message": f"no {language} articles retrieved successfully",
             }, status=status.HTTP_404_NOT_FOUND)
         serializer = ArticleSerializer(articles, many=True)
         return Response({
