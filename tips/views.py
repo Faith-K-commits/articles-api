@@ -94,3 +94,36 @@ def search_articles(request):
         'message': 'Articles retrieved successfully',
         'data': serializer.data
     }, status=status.HTTP_200_OK)
+    
+@api_view(['PATCH'])
+def update_article(request, pk):
+    try:
+        article = Article.objects.get(pk=pk)
+    except Article.DoesNotExist:
+        return Response({
+            "error": "Item not found"
+        }, status=status.HTTP_404_NOT_FOUND)
+        
+    serializer = ArticleSerializer(article, data=request.data, partial=True)
+    if serializer.is_valid():
+        serializer.save()
+        
+        return Response({
+            "status": "success",
+            "message": "Article updated successfully",
+            "data": serializer.data
+        }, status=status.HTTP_200_OK)
+    else:
+        return Response({
+            "error": serializer.errors
+        }, status=status.HTTP_400_BAD_REQUEST)
+        
+
+@api_view(['DELETE'])
+def delete_article(request, pk):
+    try:
+        article = Article.objects.get(pk=pk)
+        article.delete()
+        return Response({'message': 'Article deleted successfully.'}, status=status.HTTP_204_NO_CONTENT)
+    except Article.DoesNotExist:
+        return Response({'error': 'Item not found.'}, status=status.HTTP_404_NOT_FOUND)
