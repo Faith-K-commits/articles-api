@@ -10,7 +10,7 @@ def articles(request):
     if request.method == "POST":
         serializer = ArticleSerializer(data=request.data)
         if serializer.is_valid():
-            article = serializer.save()
+            serializer.save()
             return Response({
                 "status": "success",
                 "message": "Article posted successfully",
