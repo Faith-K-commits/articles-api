@@ -163,32 +163,32 @@ Live Site: https://articles-api-bc0e23cce04c.herokuapp.com/api/articles/
   ```
 - Example Response
   ```json
-      {
-          `"status": "success",
-          "message": "Article updated successfully",
-          "data": {
-              "title": "React Hooks",
-              "description": "React Hooks revolutionized the way developers write components. This article focuses on two fundamental hooks, `useState` and `useEffect`, explaining how they work and how they can be used to manage state and side effects in functional components.",
-              "programming_language": "JavaScript",
-              "tags": [
-                  {
-                      "name": "Web Development"
-                  },
-                  {
-                      "name": "React"
-                  },
-                  {
-                      "name": "Hooks"
-                  },
-                  {
-                      "name": "JavaScript"
-                  },
-                  {
-                      "name": "Frontend Development"
-                  }
-              ]
-          }
-      }
+  {
+    "status": "success",
+    "message": "Article updated successfully",
+    "data": {
+      "title": "React Hooks",
+      "description": "React Hooks revolutionized the way developers write components. This article focuses on two fundamental hooks, `useState` and `useEffect`, explaining how they work and how they can be used to manage state and side effects in functional components.",
+      "programming_language": "JavaScript",
+      "tags": [
+        {
+          "name": "Web Development"
+        },
+        {
+          "name": "React"
+        },
+        {
+          "name": "Hooks"
+        },
+        {
+          "name": "JavaScript"
+        },
+        {
+          "name": "Frontend Development"
+        }
+      ]
+    }
+  }
   ```
 
 ### Delete an Article
